@@ -1,0 +1,119 @@
+﻿@model JudyDou.Models.ListingModel
+
+@if (Model.Property != null)
+{
+    <h2>@Model.Property.MLSNumber</h2>
+    <h4>@Model.Property.Address, @Model.Property.City</h4>
+}
+
+@using (Html.BeginForm("Update", "Listing", new { Area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.Property.Id)
+    @Html.HiddenFor(m => m.PropertyCN.ListingId)
+
+    <h3>English Version</h3>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.MLSNumber)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.MLSNumber, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Address)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.Address, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.City)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.City, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Province)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.Province, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.PostalCode)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.PostalCode, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Price)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.Price, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Bedrooms)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.Bedrooms, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Bathrooms)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.Bathrooms, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.LotArea)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.LotArea, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.FloorArea)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.FloorArea, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.Label("Year Built")</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.Age, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Description)</div>
+        <div class="col-md-10">@Html.TextAreaFor(m => m.Property.Description, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Features)</div>
+        <div class="col-md-10">@Html.TextAreaFor(m => m.Property.Features, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.MoreInfoLink)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.MoreInfoLink, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.VideoLink)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.VideoLink, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.Label("Images")</div>
+        <div class="col-md-10"><input id="Property_Image" name="files" type="file" multiple="multiple" value="" /></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Status)</div>
+        <div class="col-md-2">@Html.EditorFor(m => m.Status)</div>
+    </div>
+
+    <h3>Chinese Version</h3>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.PropertyCN.Description)</div>
+        <div class="col-md-10">@Html.TextAreaFor(m => m.PropertyCN.Description, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.PropertyCN.Features)</div>
+        <div class="col-md-10">@Html.TextAreaFor(m => m.PropertyCN.Features, new { @class = "form-control" })</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.PropertyCN.City)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.PropertyCN.City, new { @class = "form-control" })</div>
+    </div>
+
+    <input type="submit" class="btn btn-default" value="Update" />
+}

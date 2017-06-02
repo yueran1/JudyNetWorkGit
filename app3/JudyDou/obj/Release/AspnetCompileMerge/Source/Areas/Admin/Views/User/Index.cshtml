@@ -1,0 +1,54 @@
+﻿@model JudyDou.Models.UserModel
+@using JudyDou.Helper
+
+<h2>Members</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Display Name</th>
+                <th>Email</th>
+                <th>Registration Date</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td>@item.DisplayName</td>
+                <td>@item.Email</td>
+                <td>@item.CreationDate.ToShortDateString()</td>
+                <td>@((Constants.UserStatus)item.Status)</td>
+                <td>
+                    @if (item.Status == (int)Constants.UserStatus.Normal)
+                    {
+                        <a class="btn btn-default btn-disable" href="#" data-id="@item.Id" data-status="@((int)Constants.UserStatus.Disabled)">Disable</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-default btn-disable" href="#" data-id="@item.Id" data-status="@((int)Constants.UserStatus.Normal)">Active</a>
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.btn-disable').on('click', function (e) {
+                e.preventDefault();
+                $.post("/Admin/User/Disable", { id: $(this).attr('data-id'), status: $(this).attr('data-status') }, function (data) {
+                    location.reload();
+                });
+            });
+        });
+    </script>
+}

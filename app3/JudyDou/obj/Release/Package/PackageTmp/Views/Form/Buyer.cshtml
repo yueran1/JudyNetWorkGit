@@ -1,0 +1,74 @@
+﻿@model JudyDou.Models.BuyerFormModel
+@{
+    ViewBag.Title = "买家服务";
+}
+
+<h2>买家服务</h2>
+<hr class="divider" />
+
+@using (Html.BeginForm("Buyer", "Form", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        </div>
+    </div>
+
+    for (int i = 0; i < Model.Properties.Count; i++)
+    {
+        @Html.HiddenFor(m => m.Properties[i].Id)
+        @Html.HiddenFor(m => m.Properties[i].Name)
+
+        <div class="form-group @(i < 3 ? "form-cascading-control" : "form-cascading-panel")" data-value="@Model.Properties[i].Name">
+            @Html.Label(Model.Properties[i].Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.Properties[i].Property, new { FactorId = Model.Properties[i].Id })
+            </div>
+        </div>
+    }
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="发送" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.form-cascading-control select').on('change', updateFields);
+
+            updateFields();
+
+            function updateFields() {
+                $('.form-cascading-panel').hide();
+                $('.form-cascading-control select').each(function () {
+                    var selected = $(this).val();
+                    $('.form-cascading-panel').each(function () {
+                        if ($(this).attr('data-value') == selected) {
+                            $(this).show();
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+}

@@ -1,0 +1,94 @@
+﻿@model JudyDou.Models.EvaluationModel
+@{
+    ViewBag.Title = "精英团队";
+}
+
+<h2>Evaluation</h2>
+<hr class="divider" />
+
+<div id="score-marker" class="score-star">
+    <i data-id="1" class="fa"></i>
+    <i data-id="2" class="fa"></i>
+    <i data-id="3" class="fa"></i>
+    <i data-id="4" class="fa"></i>
+    <i data-id="5" class="fa"></i>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.Evaluation.Score)
+    <div>
+        @Html.TextAreaFor(m => m.Evaluation.Comment, new { placeholder = "评价及反馈...", @class = "form-control" })
+    </div>
+    <div class="margin-top">
+        <input type="submit" class="btn btn-default" value="评价" />
+        @if (User.Identity.IsAuthenticated)
+        {
+            @Html.CheckBoxFor(m => m.Anonymous)
+            @Html.LabelFor(m => m.Anonymous)
+        }
+    </div>
+}
+
+@if (Model.Evaluations.Count > 0)
+{
+    <hr class="divider" />
+    foreach (var item in Model.Evaluations)
+    {
+        string user = item.UserId == null ? "匿名网友" : string.IsNullOrEmpty(item.UserProfile.DisplayName) ? item.UserProfile.UserName : item.UserProfile.DisplayName;
+        <div class="eval-star">
+            @user:
+            @for (int i = 0; i < item.Score; i++)
+            {
+                <i class="fa fa-star"></i>
+            }
+            @for (int i = item.Score; i < 5; i++)
+            {
+                <i class="fa fa-star-o"></i>
+            }
+        </div>
+        if (!string.IsNullOrEmpty(item.Comment))
+        {
+            <div class="panel">
+                @item.Comment
+            </div>
+        }
+        <hr class="divider" />
+    }
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            setScore($('#Evaluation_Score').val());
+
+            $('#score-marker > i').hover(function () {
+                setScore($(this).attr('data-id'));
+            });
+
+            $('#score-marker > i').on('click', function () {
+                $('#Evaluation_Score').val($(this).attr('data-id'));
+            });
+
+            $('#score-marker').hover(function () {
+            },
+            function () {
+                setScore($('#Evaluation_Score').val());
+            });
+
+            function setScore(mark) {
+                $('#score-marker > i').each(function (i, data) {
+                    var score = $(this).attr('data-id');
+                    if (score <= mark) {
+                        $(this).removeClass('fa-star-o');
+                        $(this).addClass('fa-star');
+                    } else {
+                        $(this).addClass('fa-star-o');
+                        $(this).removeClass('fa-star');
+                    }
+                });
+            }
+        });
+    </script>
+}

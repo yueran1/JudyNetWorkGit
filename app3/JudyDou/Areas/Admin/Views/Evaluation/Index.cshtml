@@ -1,0 +1,42 @@
+﻿@model JudyDou.Models.EvaluationModel
+
+<h2>Evaluations</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Score</th>
+                <th>Comment</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.Evaluations)
+        {
+            <tr>
+                <td>@(item.UserId == null ? "匿名网友" : string.IsNullOrEmpty(item.UserProfile.DisplayName) ? item.UserProfile.UserName : item.UserProfile.DisplayName)</td>
+                <td>@item.Score / 5</td>
+                <td>@item.Comment</td>
+                <td><a class="btn btn-default btn-delete" href="#" data-id="@item.Id">Delete</a></td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.btn-delete').on('click', function (e) {
+                e.preventDefault();
+                if (confirm("Are you sure to delete this comment?")) {
+                    $.post("/Admin/Evaluation/Delete", { id: $(this).attr('data-id') }, function (data) {
+                        location.reload();
+                    });
+                }
+            });
+        });
+    </script>
+}

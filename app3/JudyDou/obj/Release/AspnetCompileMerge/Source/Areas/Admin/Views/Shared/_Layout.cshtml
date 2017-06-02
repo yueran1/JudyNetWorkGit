@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Judy Dou - 安家置业 地产营销一条龙服务</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Judy Dou, a realtor with Luxmore Realty, specializes in residential houses and condos for sale." />
+    <meta name="keywords" content="Judy Dou, Luxmore, Realtor, Residential, House, Listing" />
+
+    <script src="@Url.Content("~/Scripts/modernizr-2.6.2.js")"></script>
+
+    <link href="@Url.Content("~/Content/css/font-awesome.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/bootstrap-theme.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/site.css")" rel="stylesheet" type="text/css" />
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,800,600italic' rel='stylesheet' type='text/css'>
+
+    <!--[if lt IE 10]>
+        <link href="@Url.Content("~/Content/css/ie9-and-down.css")" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="~/Scripts/iefixes/html5shiv.js"></script>
+        <script src="~/Scripts/iefixes/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">JudyDou.com (Expiry Date: <span id="expiry-date"></span>)</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Listings", "Index", new { Area = "Admin", Controller = "Listing" })</li>
+                    <li>@Html.ActionLink("Evaluations", "Index", new { Area = "Admin", Controller = "Evaluation" })</li>
+                    <li>@Html.ActionLink("Members", "Index", new { Area = "Admin", Controller = "User" })</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content" style="margin-top: 60px;">
+        @RenderBody()
+    </div>
+
+    <footer class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <p>&copy; @DateTime.Now.Year - Judy Dou</p>
+            </div>
+
+            <div class="col-md-4">
+                <p>Tel: 604-790-1111</p>
+            </div>
+
+            <div class="col-md-4">
+                <p>Fax: 604-278-3388</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                Website Design by Akarinba
+            </div>
+
+            <div class="col-md-4">
+                <p>Cell: 604-506-6898</p>
+            </div>
+
+            <div class="col-md-4">
+                <p>Email: <a href="mailto:judydouca@hotmail.com">judydouca@@hotmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+    <script src="@Url.Content("~/Scripts/respond.js")"></script>
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/site.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.post('/Admin/Admin/WebSiteExpiry', function (data) {
+                $('#expiry-date').html(data);
+            });
+        });
+    </script>
+</body>
+</html>

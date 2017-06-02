@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        @(string.IsNullOrEmpty(ViewBag.Title) ? "Luxmore Realty - 安家置业 地产营销一条龙服务" : ViewBag.Title + " - Luxmore Realty")
+    </title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Judy Dou, a realtor with Luxmore Realty, specializes in residential houses and condos for sale." />
+    <meta name="keywords" content="Judy Dou, Luxmore, Realtor, Residential, House, Listing" />
+
+    <script src="@Url.Content("~/Scripts/modernizr-2.6.2.js")"></script>
+
+    <link href="@Url.Content("~/Content/css/font-awesome.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/bootstrap-theme.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/site.css")" rel="stylesheet" type="text/css" />
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,800,600italic' rel='stylesheet' type='text/css'>
+
+    <!--[if lt IE 10]>
+        <link href="@Url.Content("~/Content/css/ie9-and-down.css")" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="~/Scripts/iefixes/html5shiv.js"></script>
+        <script src="~/Scripts/iefixes/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <div class="row home-info">
+            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2 padding-0">
+                <img class="img-responsive" src="~/Images/logo.png" />
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-7 col-xs-10">
+                <h1>Judy Dou PREC</h1>
+                <h4>Luxmore Group Realty Ltd.</h4>
+            </div>
+
+            <div class="col-lg-4 col-md-3 hidden-sm hidden-xs">
+                <p>十度荣获大温地产局金牌经纪奖</p>
+                <p>十三年精诚服务于大温地区房地产行业</p>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-3 hidden-xs right">
+                Cell: 604-506-6898<br />
+                Tel: 604-790-1111<br />
+                Fax: 604-278-3388<br />
+                Email: judydouca@hotmail.com
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row home-image">
+            <img class="img-responsive" src="~/Images/home_image.jpg" />
+        </div>
+    </div>
+
+    <div class="container navbar navbar-inverse navbar-static-top" style="margin-bottom: 0;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">首页<span>Home</span></a></li>
+                <li class="menu-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">房产信息<span>Properties</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Listing/Active">Active</a></li>
+                        <li><a href="/Listing/Sold">Sold</a></li>
+                    </ul>
+                </li>
+                <li class="menu-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">买卖家服务<span>Services</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Form/Buyer">For Buyer</a></li>
+                        <li><a href="/Form/Seller">For Seller</a></li>
+                    </ul>
+                </li>
+                <li><a href="/Team">精英团队<span>Our Team</span></a></li>
+                <li><a href="/Home/Membership">会员服务<span>Membership</span></a></li>
+                <li><a href="/Home/Testimonial">客户好评<span>Testimonial</span></a></li>
+                <li><a href="/Home/Resources">链接咨讯<span>Resources</span></a></li>
+                <li><a href="/Home/Contact">联系我们<span>Contact</span></a></li>
+                <li><a href="/Home/Event">活动<span>Activities</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <footer class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="list-no-style">
+                    <li>Judy Dou PREC</li>
+                    <li>Luxmore Group Realty Ltd.</li>
+                </ul>
+            </div>
+
+            @*
+                <div class="col-md-3">
+                    <ul>
+                        <li>八度荣获大温地产局金牌经纪奖</li>
+                        <li>十一年精诚服务于大温地区房地产行业</li>
+                    </ul>
+                </div>
+            *@
+
+            <div class="col-md-4">
+                <ul class="list-no-style">
+                    <li>Cell: 604-506-6898</li>
+                    <li>Tel: 604-790-1111</li>
+                    <li>Fax: 604-278-3388</li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <ul class="list-no-style">
+                    <li>Email: <a href="mailto:judydouca@hotmail.com">judydouca@@hotmail.com</a></li>
+                    <li>www.judydou.com</li>
+                    <li>Website Design by Akarinba</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+    <script src="@Url.Content("~/Scripts/respond.js")"></script>
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/site.js"></script>
+</body>
+</html>

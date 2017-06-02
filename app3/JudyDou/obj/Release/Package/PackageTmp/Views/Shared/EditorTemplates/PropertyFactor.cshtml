@@ -1,0 +1,143 @@
+﻿@using JudyDou.Helper
+@{
+    List<SelectListItem> list = new List<SelectListItem>();
+    List<string> options = new List<string>();
+
+    var factor = int.Parse(ViewData["FactorId"].ToString());
+
+    switch (factor)
+    {
+        case -1:
+            for (int i = 0; i < Constants.PropertyFactors.Length; i++)
+            {
+                options.Add(Constants.PropertyFactors[i]);
+            }
+            break;
+
+        case 1:
+            options.Add("自住");
+            options.Add("出租");
+            options.Add("投资");
+            break;
+
+        case 2:
+            options.Add("烈志文");
+            options.Add("温哥华西区");
+            options.Add("西温");
+            options.Add("本拿比");
+            options.Add("其它地区");
+            break;
+
+        case 3:
+            options.Add("独立屋");
+            options.Add("连体屋");
+            options.Add("城市屋");
+            options.Add("公寓楼");
+            break;
+
+        case 4:
+            options.Add("新房");
+            options.Add("5年以下");
+            options.Add("5-10年");
+            options.Add("10-20年");
+            options.Add("20年以上");
+            break;
+
+        case 5:
+            options.Add("4000尺");
+            options.Add("6000尺");
+            options.Add("8000尺以上");
+            break;
+
+        case 6:
+            options.Add("自住型");
+            options.Add("分租型");
+            break;
+
+        case 7:
+            options.Add("3 间");
+            options.Add("4 间");
+            options.Add("5 间以上");
+            break;
+
+        case 8:
+            options.Add("好学区");
+            options.Add("安静内街");
+            options.Add("近公园、社区中心");
+            options.Add("交通便利近市中心区");
+            options.Add("平原");
+            options.Add("坡地");
+            options.Add("洋人区");
+            options.Add("华人区");
+            break;
+
+        case 9:
+            options.Add("海景");
+            options.Add("河景");
+            options.Add("街景");
+            options.Add("山景");
+            break;
+
+        case 14:
+            options.Add("临大路");
+            options.Add("冲大路");
+            options.Add("近航线");
+            options.Add("靠荒地");
+            options.Add("地形不方正");
+            options.Add("街道有沟渠、电线");
+            options.Add("无中式厨房");
+            options.Add("屋主曾养宠物");
+            break;
+    }
+
+    list.Add(new SelectListItem()
+    {
+        Text = "N/A",
+        Value = "N/A",
+        Selected = ViewData.Model == null
+    });
+
+    foreach (var item in options)
+    {
+        list.Add(new SelectListItem()
+        {
+            Text = item.ToString(),
+            Value = item.ToString(),
+            Selected = item.Equals(ViewData.Model)
+        });
+    }
+}
+
+@switch (factor)
+{
+    case -1:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 9:
+        @Html.DropDownList("", list, new { @class = "form-control" })
+        break;
+
+    case 8:
+    case 14:
+        foreach (var item in options)
+        {
+            <label class="checkbox-option">@Html.CheckBox("", new { value = item })@item</label>
+        }
+        break;
+
+    case 0:
+        @Html.TextBox("", "", new { @class = "form-control" })
+        break;
+
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+        @Html.TextArea("", new { @class = "form-control" })
+        break;
+}

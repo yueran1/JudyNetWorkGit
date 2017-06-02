@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Evaluations" EntityType="DBModel.Evaluation" />
+    <EntitySet Name="Listings" EntityType="DBModel.Listing" />
+    <EntitySet Name="ListingCNs" EntityType="DBModel.ListingCN" />
+    <EntitySet Name="SiteSettings" EntityType="DBModel.SiteSetting" />
+    <EntitySet Name="UserProfiles" EntityType="DBModel.UserProfile" />
+    <EntitySet Name="webpages_Membership" EntityType="DBModel.webpages_Membership" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="DBModel.webpages_OAuthMembership" />
+    <EntitySet Name="webpages_Roles" EntityType="DBModel.webpages_Roles" />
+    <EntitySet Name="webpages_UserProfile" EntityType="DBModel.webpages_UserProfile" />
+    <AssociationSet Name="FK_Evaluation_UserProfile" Association="DBModel.FK_Evaluation_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Evaluation" EntitySet="Evaluations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListingCN_Listing" Association="DBModel.FK_ListingCN_Listing">
+      <End Role="Listing" EntitySet="Listings" />
+      <End Role="ListingCN" EntitySet="ListingCNs" />
+    </AssociationSet>
+    <AssociationSet Name="webpages_UsersInRoles" Association="DBModel.webpages_UsersInRoles">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UserProfile" EntitySet="webpages_UserProfile" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Evaluation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Score" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserProfile" Relationship="DBModel.FK_Evaluation_UserProfile" FromRole="Evaluation" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="Listing">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="Province" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="MLSNumber" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Bedrooms" Type="Int32" Nullable="false" />
+    <Property Name="Bathrooms" Type="Int32" Nullable="false" />
+    <Property Name="LotArea" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FloorArea" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="MoreInfoLink" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="VideoLink" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ListingCN" Relationship="DBModel.FK_ListingCN_Listing" FromRole="Listing" ToRole="ListingCN" />
+  </EntityType>
+  <EntityType Name="ListingCN">
+    <Key>
+      <PropertyRef Name="ListingId" />
+    </Key>
+    <Property Name="ListingId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Features" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Listing" Relationship="DBModel.FK_ListingCN_Listing" FromRole="ListingCN" ToRole="Listing" />
+  </EntityType>
+  <EntityType Name="SiteSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Evaluations" Relationship="DBModel.FK_Evaluation_UserProfile" FromRole="UserProfile" ToRole="Evaluation" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsConfirmed" Type="Boolean" />
+    <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="webpages_UserProfile" Relationship="DBModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="webpages_UserProfile" />
+  </EntityType>
+  <EntityType Name="webpages_UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="webpages_Roles" Relationship="DBModel.webpages_UsersInRoles" FromRole="webpages_UserProfile" ToRole="webpages_Roles" />
+  </EntityType>
+  <Association Name="FK_Evaluation_UserProfile">
+    <End Type="DBModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <End Type="DBModel.Evaluation" Role="Evaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Evaluation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListingCN_Listing">
+    <End Type="DBModel.Listing" Role="Listing" Multiplicity="1" />
+    <End Type="DBModel.ListingCN" Role="ListingCN" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Listing">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ListingCN">
+        <PropertyRef Name="ListingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="webpages_UsersInRoles">
+    <End Type="DBModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
+    <End Type="DBModel.webpages_UserProfile" Role="webpages_UserProfile" Multiplicity="*" />
+  </Association>
+</Schema>

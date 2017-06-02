@@ -1,0 +1,61 @@
+﻿@model JudyDou.Models.ListingModel
+
+<h2>@Model.Property.MLSNumber</h2>
+<h4>@Model.Property.Address, @Model.Property.City</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.Property.Id)
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Province)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Property.Province)</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Price)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Property.Price)</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Bedrooms)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Property.Bedrooms)</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Bathrooms)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Property.Bathrooms)</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.LotArea)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Property.LotArea)</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.FloorArea)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Property.FloorArea)</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.Label("Year Built")</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Property.Age)</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Description)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Property.Description)</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.Features)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Property.Features)</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Status)</div>
+        <div class="col-md-2">@Html.EditorFor(m => m.Status)</div>
+    </div>
+    
+    <input type="submit" class="btn btn-default" value="Update" />
+}

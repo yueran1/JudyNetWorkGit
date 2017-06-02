@@ -1,0 +1,375 @@
+﻿body {
+    font-family: STZhongsong, YouYuan, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #eeeeee;
+    background: url("./Images/background_tile.jpg") repeat;
+    color: #003366;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: #003366;
+    /*color: #fff;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #ccc;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #ccc;
+    opacity: 1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #ccc;
+    opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #ccc;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    background: #ffffff;
+    /*background: linear-gradient(to bottom, #ffffff 0%, #3399cc 100%);*/
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select {
+    max-width: 280px;
+}
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        width: auto;
+        max-width: none;
+        margin: 4px 4px 0 0;
+    }
+
+footer {
+    background: #ffffff;
+    overflow: hidden;
+    margin-top: 10px;
+    padding: 10px 10px 0px 10px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+
+/******************************************** Custom.css ********************************************/
+
+/******************************************** general ********************************************/
+.container > .row > .col:first-child {
+    padding-left: 0;
+}
+
+.container > .row > .col:last-child {
+    padding-right: 0;
+}
+
+.quote {
+    background: url("./Images/quote.jpg") no-repeat;
+    background-size: 100% 100%;
+    padding: 20px 0;
+}
+
+.low-res {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .quote {
+        background: none;
+    }
+
+    .low-res {
+        display: block;
+    }
+}
+
+.panel {
+    background: #FFFFFF;
+    border: 1px solid #dcdcdc;
+    border-radius: 3px 3px 3px 3px;
+    margin-top: 6px;
+    padding: 10px;
+}
+
+.bullet-list {
+    padding: 10px;
+}
+
+    .bullet-list li {
+        font-size: 1.1em;
+    }
+
+    /*.bullet-list h3 {
+        background: #0026ff;
+        margin: 0;
+        padding: 20px 0;
+    }*/
+
+    .bullet-list hr,
+    .divider {
+        /*border-top: 1px solid #003366;*/
+        height: 1px;
+        border: 0;
+        background-image: -webkit-linear-gradient(left, rgba(0,51,102,1), rgba(0,51,102,.1), rgba(0,51,102,0));
+        background-image: -moz-linear-gradient(left, rgba(0,51,102,1), rgba(0,51,102,.1), rgba(0,51,102,0));
+        background-image: -ms-linear-gradient(left, rgba(0,51,102,1), rgba(0,51,102,.1), rgba(0,51,102,0));
+        background-image: -o-linear-gradient(left, rgba(0,51,102,1), rgba(0,51,102,.1), rgba(0,51,102,0));
+    }
+
+.checkbox-option {
+    display: block;
+    font-weight: normal;
+}
+
+    .checkbox-option > input {
+        position: relative;
+        top: 3px;
+    }
+/******************************************** nav ********************************************/
+.navbar {
+    font-family: YouYuan;
+}
+
+.navbar-nav > li > a > span {
+    font-size: 9pt;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    background-image: linear-gradient(to bottom, #222 0%, #282828 100%);
+    background-repeat: repeat-x;
+    box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.25) inset;
+}
+
+/******************************************** home ********************************************/
+.home-info {
+    background-image: linear-gradient(to bottom, #3c3c3c 0%, #222 100%);
+    background-image: url("./Images/header.jpg");
+    background-repeat: repeat-x;
+    box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.25) inset;
+    color: #fff;
+    padding: 15px;
+}
+
+    .home-info h1,
+    .home-info h2,
+    .home-info h3,
+    .home-info h4,
+    .home-info p {
+        color: #fff;
+    }
+
+    .home-info h1 {
+        margin-top: 2px;
+    }
+
+    .home-info h4 {
+        margin-top: 2px;
+        margin-bottom: 0;
+    }
+
+    .home-info p {
+        line-height: 30px;
+        margin: 10px 0 0;
+    }
+
+.home-image {
+    /*background: #341300;*/
+}
+
+.home-field .avatar {
+    float: left;
+    margin: 0 20px 0 0;
+    width: 150px;
+}
+
+.home-field .medal {
+    float: right;
+    margin: 0px 20px 0px 20px;
+    width: 140px;
+}
+
+/******************************************** contact ********************************************/
+.contact-list {
+    font-weight: bold;
+}
+
+/******************************************** listing ********************************************/
+.listing-info h4 {
+    margin: 0;
+}
+
+.listing-info ul {
+    padding: 0;
+}
+
+.listing-info .ul-label {
+    font-weight: bold;
+}
+
+.listing-info .ul-display {
+    list-style: none;
+}
+
+.language > form {
+    float: right;
+    margin-top: 15px;
+}
+
+.sold-image-wrapper {
+    position: relative;
+}
+
+.sold-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+}
+
+/******************************************** evaluation ********************************************/
+.score-star {
+    color: #f3e71f;
+    font-size: 20pt;
+}
+
+#score-marker > i {
+    cursor: pointer;
+}
+
+.eval-star > i {
+    color: #f3e71f;
+}
+
+.avatar-group {
+    float: right;
+}
+
+/******************************************** testimonial ********************************************/
+.testimonial .panel-heading {
+    background: none;
+    padding: 0;
+}
+
+    .testimonial .panel-heading .panel-title {
+        display: block;
+        padding: 10px;
+        color: #003366;
+        font-weight: bold;
+    }
+
+        .testimonial .panel-heading .panel-title:active,
+        .testimonial .panel-heading .panel-title:focus,
+        .testimonial .panel-heading .panel-title:hover {
+            text-decoration: none;
+        }
+
+        .testimonial .panel-heading .panel-title.collapsed + .divider {
+            display: none;
+        }
+
+.testimonial .panel-body {
+    border: none !important;
+    padding: 0 10px 0;
+}
+
+.testimonial .divider {
+    margin: 0 10px 10px;
+}
+
+/******************************************** other ********************************************/
+label.field-label {
+    display: none;
+}
+
+.list-no-style {
+    list-style: none;
+}
+
+.font-larger,
+.font-larger > p {
+    font-size: 1.1em;
+}
+
+    .font-larger > h2 {
+        font-size: 3.1em;
+    }
+
+.font-emphasis {
+    font-weight: bold;
+    font-size: 200%;
+    color: #3f97b5;
+}
+
+.right {
+    text-align: right;
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+.padding-0 {
+    padding: 0;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.text-indent {
+    text-indent: 30px;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+/******************************************** errors ********************************************/
+.error-number {
+    text-align: center;
+}
+
+    .error-number > span {
+        font-size: 70pt;
+        font-family: "Open Sans";
+    }

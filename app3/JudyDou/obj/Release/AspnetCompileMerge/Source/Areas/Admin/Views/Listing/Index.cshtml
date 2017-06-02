@@ -1,0 +1,36 @@
+﻿@model JudyDou.Models.ListingModel
+
+<h2>Listings</h2>
+
+<div style="text-align: right;">
+    <a class="btn btn-default" href="/Admin/Listing/Update">Add Listing</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>MLS</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.Properties)
+        {
+            <tr>
+                <td>@item.MLSNumber</td>
+                <td>@item.Address</td>
+                <td>@item.City</td>
+                <td>@((JudyDou.Helper.Constants.ListingStatus)item.Status)</td>
+                <td>
+                    <a class="btn btn-default" href="/Admin/Listing/Details/@item.Id">Details</a>
+                    <a class="btn btn-default" href="/Admin/Listing/Update/@item.Id">Edit</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

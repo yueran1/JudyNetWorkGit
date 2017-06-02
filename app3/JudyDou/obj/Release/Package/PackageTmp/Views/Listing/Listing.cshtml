@@ -1,0 +1,102 @@
+﻿@model JudyDou.Models.ListingModel
+@using System.Globalization
+@{
+    ViewBag.Title = "房产信息";
+}
+
+<div class="language">
+    @using (Html.BeginForm("Listing", "Listing"))
+    {
+        @Html.HiddenFor(m => m.Title)
+        @Html.HiddenFor(m => m.Status)
+        if (Model.Chinese)
+        {
+            <input id="Chinese" type="hidden" value="False" name="Chinese" />
+            <input type="submit" class="btn btn-default" value="English" />
+        }
+        else
+        {
+            <input id="Chinese" type="hidden" value="True" name="Chinese" />
+            <input type="submit" class="btn btn-default" value="中文" />
+        }
+    }
+</div>
+
+<h2>@Model.Title</h2>
+<hr class="divider" />
+
+
+@for (int i = 0; i < Model.Properties.Count; i++)
+{
+    var item = Model.Properties.OrderByDescending(x => decimal.Parse(x.Price, NumberStyles.Currency)).ToList()[i];
+    var description = item.Description.Length > 500 ? item.Description.Substring(0, 497) + "..." : item.Description;
+
+    <div class="row margin-bottom">
+        <div class="col-md-4">
+            <a href="/Listing/Details/@item.Id">
+                <div class="sold-image-wrapper">
+                    <img class="sold-image @(Model.Status == (int)JudyDou.Helper.Constants.ListingStatus.Sold? "" : "hide")" src="~/Content/css/Images/sold.png" />
+                    <img class="img-responsive" src="@item.Image" onerror="this.src = '/Images/Listing/default.jpg';" />
+                </div>
+            </a>
+        </div>
+        <div class="col-md-8 listing-info">
+            <h4>
+                <a href="/Listing/Details/@item.Id">
+                    [MLS&reg; Number: @item.MLSNumber]
+                    <span>&nbsp;&nbsp;@item.Address, @item.City</span>
+                </a>
+            </h4>
+            <hr class="divider" />
+            <div>
+                <div class="col-md-2">
+                    <ul class="ul-label">
+                        @if (Model.Chinese)
+                        {
+                            <li>价格:</li>
+                            <li>卧室:</li>
+                            <li>卫生间:</li>
+                            <li>占地面积:</li>
+                            <li>房屋面积:</li>
+                            <li>房龄:</li>
+                        }
+                        else
+                        {
+                            <li>Price:</li>
+                            <li>Bedrooms:</li>
+                            <li>Bathrooms:</li>
+                            <li>Lot Area:</li>
+                            <li>Floor Area:</li>
+                            <li>Age:</li>
+                        }
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul class="ul-display">
+                        <li>@item.Price</li>
+                        <li>@item.Bedrooms</li>
+                        <li>@item.Bathrooms</li>
+                        <li>@(string.IsNullOrEmpty(item.LotArea) ? "N/A" : item.LotArea)</li>
+                        <li>@(string.IsNullOrEmpty(item.FloorArea) ? "N/A" : item.FloorArea)</li>
+                        <li>@(DateTime.Now.Year - item.Age)</li>
+                    </ul>
+                </div>
+                <div class="col-md-8">
+                    <div class="margin-bottom">
+                        <strong>@(Model.Chinese ? "简介" : "Brief Description"):</strong> @Html.Raw(description)
+                        @if (!string.IsNullOrEmpty(item.VideoLink))
+                        {
+                            <a href="@item.VideoLink">@(Model.Chinese ? "观看视频" : "Virtual Tour")</a>
+                        }
+                    </div>
+                    @if (!string.IsNullOrEmpty(item.Features))
+                    {
+                        <div>
+                            <strong>@(Model.Chinese ? "特点" : "Features"):</strong> @item.Features
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

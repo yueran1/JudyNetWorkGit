@@ -1,0 +1,116 @@
+﻿@model JudyDou.Models.ListingModel
+
+<div class="language">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(m => m.Property.Id)
+        if (Model.Chinese)
+        {
+            <input id="Chinese" type="hidden" value="False" name="Chinese" />
+            <input type="submit" class="btn btn-default" value="English" />
+        }
+        else
+        {
+            <input id="Chinese" type="hidden" value="True" name="Chinese" />
+            <input type="submit" class="btn btn-default" value="中文" />
+        }
+    }
+</div>
+
+<h2>@Model.Property.MLSNumber</h2>
+<h4>@Model.Property.Address, @Model.Property.City</h4>
+<hr class="divider" />
+
+@if (Model.Photo != null)
+{
+    <div class="sold-image-wrapper">
+        <img class="sold-image @(Model.Property.Status == (int)JudyDou.Helper.Constants.ListingStatus.Sold? "" : "hide")" src="~/Content/css/Images/sold.png" />
+        <div id="listing-slider" class="carousel slide" data-ride="carousel" style="max-width: 512px;">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                @for (int i = 0; i < Model.Photo.Count; i++)
+                {
+                    <li data-target="#listing-slider" data-slide-to="@i" @(i == 0 ? "class='active'" : "")></li>
+                }
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @for (int i = 0; i < Model.Photo.Count; i++)
+                {
+                    <div class="item @(i == 0 ? "active" : "")">
+                        <img class="img-responsive" src="@Model.Photo[i]" alt="@Model.Property.Address">
+                    </div>
+                }
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#listing-slider" data-slide="prev" style="background: none;">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#listing-slider" data-slide="next" style="background: none;">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+    <hr class="divider" />
+}
+
+<div class="row">
+    <div class="col-md-2">@Html.LabelFor(m => m.Property.Province)</div>
+    <div class="col-md-10">@Html.DisplayFor(m => m.Property.Province)</div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">@Html.LabelFor(m => m.Property.Price)</div>
+    <div class="col-md-10">@Html.DisplayFor(m => m.Property.Price)</div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">@Html.LabelFor(m => m.Property.Bedrooms)</div>
+    <div class="col-md-10">@Html.DisplayFor(m => m.Property.Bedrooms)</div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">@Html.LabelFor(m => m.Property.Bathrooms)</div>
+    <div class="col-md-10">@Html.DisplayFor(m => m.Property.Bathrooms)</div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">@Html.LabelFor(m => m.Property.LotArea)</div>
+    <div class="col-md-10">@Html.DisplayFor(m => m.Property.LotArea)</div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">@Html.LabelFor(m => m.Property.FloorArea)</div>
+    <div class="col-md-10">@Html.DisplayFor(m => m.Property.FloorArea)</div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">@Html.Label("Year Built")</div>
+    <div class="col-md-10">@Html.DisplayFor(m => m.Property.Age)</div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">@Html.LabelFor(m => m.Property.Description)</div>
+    <div class="col-md-10">
+        @Html.Raw(Model.Property.Description)
+        @if (!string.IsNullOrEmpty(Model.Property.VideoLink))
+        {
+            <a href="@Model.Property.VideoLink">@(Model.Chinese ? "观看视频" : "Virtual Tour")</a>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">@Html.LabelFor(m => m.Property.Features)</div>
+    <div class="col-md-10">@Html.DisplayFor(m => m.Property.Features)</div>
+</div>
+
+@if (!string.IsNullOrEmpty(Model.Property.MoreInfoLink))
+{
+    <hr class="divider" />
+    <div class="row">
+        <div class="col-md-12"><a class="btn btn-default" href="@Model.Property.MoreInfoLink" target="_blank">More Information</a></div>
+    </div>
+}

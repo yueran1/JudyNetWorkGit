@@ -1,0 +1,17 @@
+﻿@using JudyDou.Helper
+@{
+    List<SelectListItem> list = new List<SelectListItem>();
+    var selected = ViewData.Model == null ? Constants.ListingStatus.Active : (Constants.ListingStatus)ViewData.Model;
+
+    foreach (Constants.ListingStatus item in Enum.GetValues(typeof(Constants.ListingStatus)))
+    {
+        list.Add(new SelectListItem()
+        {
+            Text = item.ToString(),
+            Value = ((int)item).ToString(),
+            Selected = item == selected
+        });
+    }
+}
+
+@Html.DropDownList("", list, new { @class = "form-control" })
