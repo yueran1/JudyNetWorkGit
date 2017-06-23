@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAQiG+uP6O0qc/MbBWJk/SQAAAAACAAAAAAAQZgAAAAEAACAAAABS7GFm5aXvOoE3PWwV4PwT3Z5BfVdKFmhJBwRist4ZSQAAAAAOgAAAAAIAACAAAABM0XAqIq3Cl/UJ26LHOyHQaYq0d0Ndg89BvsxJFT785yAAAAB/AAsIl23C9vXhZ1RxiWB1Hs+t6h4cO4IH1w2jcQ8HVEAAAABzippJUC+xd8vT1Iyd/fONK1uAcu8uMh+g1+Qa9DAOf12mdPxYPeirHPIO/b5mdK2YXOGzMsAAnsE2uz2dmTDv</EncryptedPassword>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAQiG+uP6O0qc/MbBWJk/SQAAAAACAAAAAAAQZgAAAAEAACAAAAB+dogDj4Hqi2oY/lRcLiqkr4lR9Gx9cnHFqXdf/UjEIwAAAAAOgAAAAAIAACAAAADVEmX3W7CcmQotXN8g1QDlVGYxwNgVY1TnZVaQ359LCiAAAAC9ECo+4Si3LLXxqF2m9VD3oqpUabJ9DvqnBGyoYT+gl0AAAABFQoPnQxFctjPgHTFnot+BE5EKDgF4RDSTsVZZe0OIkpFUFD4MaMu26Rgo8zqNPWes/3xxV1BE4HRAEkF2/N8S</EncryptedPassword>
     <_PublishTargetUrl>ftp://judydou.com</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
@@ -14,13 +14,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/29/2014 01:56:40</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Listing/Details.cshtml">
-      <publishTime>09/29/2014 03:43:18</publishTime>
+      <publishTime>06/06/2017 10:21:00</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Listing/Index.cshtml">
       <publishTime>09/04/2015 15:18:16</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Listing/Update.cshtml">
-      <publishTime>09/04/2015 15:09:20</publishTime>
+      <publishTime>06/06/2017 10:34:18</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Shared/_Layout.cshtml">
       <publishTime>04/30/2015 14:54:54</publishTime>
@@ -38,19 +38,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/03/2014 10:17:10</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>06/01/2017 23:59:19</publishTime>
+      <publishTime>06/07/2017 21:53:02</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>06/01/2017 23:59:19</publishTime>
+      <publishTime>06/07/2017 21:53:02</publishTime>
     </File>
     <File Include="bin/BusinessLogic.dll">
-      <publishTime>06/01/2017 21:24:13</publishTime>
+      <publishTime>06/05/2017 11:35:13</publishTime>
     </File>
     <File Include="bin/BusinessLogic.dll.config">
-      <publishTime>06/01/2017 21:17:14</publishTime>
+      <publishTime>06/06/2017 11:04:51</publishTime>
     </File>
     <File Include="bin/BusinessLogic.pdb">
-      <publishTime>06/01/2017 21:24:13</publishTime>
+      <publishTime>06/05/2017 11:35:13</publishTime>
     </File>
     <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
       <publishTime>03/03/2014 10:17:10</publishTime>
@@ -119,10 +119,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/03/2014 10:17:08</publishTime>
     </File>
     <File Include="bin/JudyDou.dll">
-      <publishTime>06/01/2017 23:50:23</publishTime>
+      <publishTime>06/07/2017 21:50:52</publishTime>
     </File>
     <File Include="bin/JudyDou.pdb">
-      <publishTime>06/01/2017 23:50:23</publishTime>
+      <publishTime>06/07/2017 21:50:52</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
       <publishTime>03/03/2014 10:17:10</publishTime>
@@ -323,7 +323,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/03/2014 10:17:10</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/01/2017 23:59:17</publishTime>
+      <publishTime>06/07/2017 21:53:01</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>02/13/2014 09:24:42</publishTime>
@@ -440,10 +440,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/01/2017 11:36:46</publishTime>
     </File>
     <File Include="Views/Listing/Details.cshtml">
-      <publishTime>08/01/2015 16:31:38</publishTime>
+      <publishTime>06/06/2017 10:19:15</publishTime>
     </File>
     <File Include="Views/Listing/Listing.cshtml">
-      <publishTime>06/01/2017 21:50:48</publishTime>
+      <publishTime>06/07/2017 21:44:21</publishTime>
+    </File>
+    <File Include="Views/Listing/Listing_Active.cshtml">
+      <publishTime>06/07/2017 21:46:45</publishTime>
+    </File>
+    <File Include="Views/Listing/Listing_Sold.cshtml">
+      <publishTime>06/07/2017 21:52:48</publishTime>
     </File>
     <File Include="Views/Shared/EditorTemplates/ListingStatus.cshtml">
       <publishTime>09/29/2014 03:27:28</publishTime>
@@ -488,7 +494,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/08/2014 14:43:56</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/01/2017 23:50:26</publishTime>
+      <publishTime>06/06/2017 11:06:55</publishTime>
     </File>
   </ItemGroup>
 </Project>

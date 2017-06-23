@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Evaluation">
           <Key>
             <PropertyRef Name="Id" />
@@ -36,6 +36,7 @@
           <Property Name="MoreInfoLink" Type="nvarchar" MaxLength="256" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="VideoLink" Type="nvarchar" MaxLength="256" />
+          <Property Name="DealYear" Type="int" />
         </EntityType>
         <EntityType Name="ListingCN">
           <Key>
@@ -249,6 +250,7 @@
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="VideoLink" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ListingCN" Relationship="DBModel.FK_ListingCN_Listing" FromRole="Listing" ToRole="ListingCN" />
+          <Property Name="DealYear" Type="Int32" />
         </EntityType>
         <EntityType Name="ListingCN">
           <Key>
@@ -369,6 +371,7 @@
           <EntitySetMapping Name="Listings">
             <EntityTypeMapping TypeName="DBModel.Listing">
               <MappingFragment StoreEntitySet="Listing">
+                <ScalarProperty Name="DealYear" ColumnName="DealYear" />
                 <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="MoreInfoLink" ColumnName="MoreInfoLink" />

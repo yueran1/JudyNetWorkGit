@@ -56,6 +56,7 @@
     <Property Name="Status" Type="Int32" Nullable="false" />
     <Property Name="VideoLink" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ListingCN" Relationship="DBModel.FK_ListingCN_Listing" FromRole="Listing" ToRole="ListingCN" />
+    <Property Name="DealYear" Type="Int32" />
   </EntityType>
   <EntityType Name="ListingCN">
     <Key>

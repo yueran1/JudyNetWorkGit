@@ -32,6 +32,7 @@ namespace BusinessLogic
         public string MoreInfoLink { get; set; }
         public int Status { get; set; }
         public string VideoLink { get; set; }
+        public Nullable<int> DealYear { get; set; }
     
         public virtual ListingCN ListingCN { get; set; }
     }

@@ -69,6 +69,12 @@
     </div>
 
     <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Property.DealYear)</div>
+        <div class="col-md-10">@Html.TextBoxFor(m => m.Property.DealYear, new { @class="form-control"})</div>
+
+    </div>
+
+    <div class="row">
         <div class="col-md-2">@Html.LabelFor(m => m.Property.Description)</div>
         <div class="col-md-10">@Html.TextAreaFor(m => m.Property.Description, new { @class = "form-control" })</div>
     </div>

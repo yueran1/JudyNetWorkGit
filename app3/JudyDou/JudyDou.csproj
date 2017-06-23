@@ -382,6 +382,8 @@
     <Content Include="Views\Shared\EditorTemplates\PropertyFactor.cshtml" />
     <Content Include="Views\Home\MessageSent.cshtml" />
     <Content Include="Views\Home\Event.cshtml" />
+    <Content Include="Views\Listing\Listing_Active.cshtml" />
+    <Content Include="Views\Listing\Listing_Sold.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">

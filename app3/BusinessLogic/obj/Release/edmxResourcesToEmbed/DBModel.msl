@@ -14,6 +14,7 @@
     <EntitySetMapping Name="Listings">
       <EntityTypeMapping TypeName="DBModel.Listing">
         <MappingFragment StoreEntitySet="Listing">
+          <ScalarProperty Name="DealYear" ColumnName="DealYear" />
           <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="MoreInfoLink" ColumnName="MoreInfoLink" />

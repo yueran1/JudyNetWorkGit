@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Evaluation">
     <Key>
       <PropertyRef Name="Id" />
@@ -31,6 +31,7 @@
     <Property Name="MoreInfoLink" Type="nvarchar" MaxLength="256" />
     <Property Name="Status" Type="int" Nullable="false" />
     <Property Name="VideoLink" Type="nvarchar" MaxLength="256" />
+    <Property Name="DealYear" Type="int" />
   </EntityType>
   <EntityType Name="ListingCN">
     <Key>

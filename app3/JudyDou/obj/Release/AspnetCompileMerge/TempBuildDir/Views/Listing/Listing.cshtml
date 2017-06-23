@@ -36,7 +36,7 @@
             <a href="/Listing/Details/@item.Id">
                 <div class="sold-image-wrapper">
                     <img class="sold-image @(Model.Status == (int)JudyDou.Helper.Constants.ListingStatus.Sold? "" : "hide")" src="~/Content/css/Images/sold.png" />
-                    <img class="img-responsive" src="@item.Image" onerror="this.src = '/Images/Listing/default.jpg';" />
+                    <img class="img-responsive" src="@item.Image" width="780" height="480" onerror="this.src = '/Images/Listing/default.jpg';" />
                 </div>
             </a>
         </div>
@@ -59,6 +59,7 @@
                             <li>占地面积:</li>
                             <li>房屋面积:</li>
                             <li>房龄:</li>
+                            <li>成交年份：</li>
                         }
                         else
                         {
@@ -68,6 +69,7 @@
                             <li>Lot Area:</li>
                             <li>Floor Area:</li>
                             <li>Age:</li>
+                            <li>Deal Year:</li>
                         }
                     </ul>
                 </div>
@@ -79,6 +81,7 @@
                         <li>@(string.IsNullOrEmpty(item.LotArea) ? "N/A" : item.LotArea)</li>
                         <li>@(string.IsNullOrEmpty(item.FloorArea) ? "N/A" : item.FloorArea)</li>
                         <li>@(DateTime.Now.Year - item.Age)</li>
+                        <li>@item.DealYear</li>
                     </ul>
                 </div>
                 <div class="col-md-8">

@@ -21,7 +21,7 @@ namespace JudyDou.Controllers
             model.Title = "Active Listing";
             model.Status = (int)Constants.ListingStatus.Active;
 
-            return Listing(model);
+            return Listing_Active(model);
         }
 
         public ActionResult Sold()
@@ -31,15 +31,29 @@ namespace JudyDou.Controllers
             model.Title = "Sold Listing";
             model.Status = (int)Constants.ListingStatus.Sold;
 
-            return Listing(model);
+            return Listing_Sold(model);
         }
 
-        [HttpPost]
-        public ActionResult Listing(ListingModel model)
+        /* [HttpPost]
+         public ActionResult Listing(ListingModel model)
+         {
+             model.Properties = GetListings(model.Status, model.Chinese);
+
+             return View("Listing", model);
+         }*/
+
+        public ActionResult Listing_Active(ListingModel model)
         {
             model.Properties = GetListings(model.Status, model.Chinese);
 
-            return View("Listing", model);
+            return View("Listing_Active", model);
+        }
+
+        public ActionResult Listing_Sold(ListingModel model)
+        {
+            model.Properties = GetListings(model.Status, model.Chinese);
+
+            return View("Listing_Sold", model);
         }
 
         private List<Listing> GetListings(int status, bool chinese = true)
