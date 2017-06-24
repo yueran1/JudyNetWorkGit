@@ -38,10 +38,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/03/2014 10:17:10</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>06/07/2017 21:53:02</publishTime>
+      <publishTime>06/23/2017 23:03:31</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>06/07/2017 21:53:02</publishTime>
+      <publishTime>06/23/2017 23:03:31</publishTime>
     </File>
     <File Include="bin/BusinessLogic.dll">
       <publishTime>06/05/2017 11:35:13</publishTime>
@@ -119,10 +119,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/03/2014 10:17:08</publishTime>
     </File>
     <File Include="bin/JudyDou.dll">
-      <publishTime>06/07/2017 21:50:52</publishTime>
+      <publishTime>06/23/2017 20:55:59</publishTime>
     </File>
     <File Include="bin/JudyDou.pdb">
-      <publishTime>06/07/2017 21:50:52</publishTime>
+      <publishTime>06/23/2017 20:55:59</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
       <publishTime>03/03/2014 10:17:10</publishTime>
@@ -323,7 +323,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/03/2014 10:17:10</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/07/2017 21:53:01</publishTime>
+      <publishTime>06/23/2017 21:42:23</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>02/13/2014 09:24:42</publishTime>
@@ -479,7 +479,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/28/2014 11:45:04</publishTime>
     </File>
     <File Include="Views/Team/Index.cshtml">
-      <publishTime>03/20/2015 12:07:20</publishTime>
+      <publishTime>06/23/2017 23:03:22</publishTime>
     </File>
     <File Include="Views/Team/Inspection.cshtml">
       <publishTime>09/29/2014 04:43:14</publishTime>
