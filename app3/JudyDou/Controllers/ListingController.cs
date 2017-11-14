@@ -34,7 +34,7 @@ namespace JudyDou.Controllers
             return Listing_Sold(model);
         }
 
-        /* [HttpPost]
+        /*[HttpPost]
          public ActionResult Listing(ListingModel model)
          {
              model.Properties = GetListings(model.Status, model.Chinese);

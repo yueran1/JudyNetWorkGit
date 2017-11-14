@@ -30,3 +30,4 @@ C:\Users\tonysunyueran\Desktop\judy\app3\BusinessLogic\bin\Debug\EntityFramework
 C:\Users\tonysunyueran\Desktop\judy\app3\BusinessLogic\bin\Debug\EntityFramework.xml
 C:\Users\tonysunyueran\Desktop\judy\app3\BusinessLogic\obj\Debug\BusinessLogic.dll
 C:\Users\tonysunyueran\Desktop\judy\app3\BusinessLogic\obj\Debug\BusinessLogic.pdb
+C:\Users\tonysunyueran\Desktop\judy\app3\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
