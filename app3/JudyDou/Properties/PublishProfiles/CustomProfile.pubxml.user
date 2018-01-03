@@ -38,10 +38,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/03/2014 10:17:10</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/11/2017 12:20:53</publishTime>
+      <publishTime>01/03/2018 11:07:11</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/11/2017 12:20:53</publishTime>
+      <publishTime>01/03/2018 11:07:11</publishTime>
     </File>
     <File Include="bin/BusinessLogic.dll">
       <publishTime>11/11/2017 12:20:42</publishTime>
@@ -323,7 +323,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/03/2014 10:17:10</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/11/2017 12:20:50</publishTime>
+      <publishTime>01/03/2018 10:57:01</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>02/13/2014 09:24:42</publishTime>
@@ -419,13 +419,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/27/2014 04:36:22</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>06/01/2017 11:36:52</publishTime>
+      <publishTime>01/03/2018 10:55:45</publishTime>
     </File>
     <File Include="Views/Home/Event.cshtml">
-      <publishTime>11/11/2017 12:20:25</publishTime>
+      <publishTime>01/03/2018 10:55:46</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/01/2017 22:38:04</publishTime>
+      <publishTime>01/03/2018 11:07:06</publishTime>
     </File>
     <File Include="Views/Home/Membership.cshtml">
       <publishTime>10/03/2014 11:49:48</publishTime>
@@ -437,7 +437,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/09/2014 11:52:34</publishTime>
     </File>
     <File Include="Views/Home/Testimonial.cshtml">
-      <publishTime>06/01/2017 11:36:46</publishTime>
+      <publishTime>01/03/2018 10:56:04</publishTime>
     </File>
     <File Include="Views/Listing/Details.cshtml">
       <publishTime>06/06/2017 10:19:15</publishTime>
@@ -467,7 +467,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/08/2014 15:53:54</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/28/2017 12:29:40</publishTime>
+      <publishTime>01/03/2018 10:55:43</publishTime>
     </File>
     <File Include="Views/Shared/_Pager.cshtml">
       <publishTime>05/05/2014 05:47:54</publishTime>
@@ -479,13 +479,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/28/2014 11:45:04</publishTime>
     </File>
     <File Include="Views/Team/Index.cshtml">
-      <publishTime>11/11/2017 12:15:02</publishTime>
+      <publishTime>01/03/2018 11:06:57</publishTime>
     </File>
     <File Include="Views/Team/Inspection.cshtml">
       <publishTime>09/29/2014 04:43:14</publishTime>
     </File>
     <File Include="Views/Team/Services.cshtml">
-      <publishTime>09/28/2014 11:44:38</publishTime>
+      <publishTime>01/03/2018 11:01:35</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/03/2014 10:16:56</publishTime>
